@@ -20,21 +20,23 @@ _Here are the options..._
 
 | Option  | What it do! | Possible Values          |
 |------------- | ------------- | -----------------|
-|defaultImage  | Takes the 'id' attribute of an image. On page load and mouseOut, the defaultImage will be what is displayed inside the frameScrub.  | _"Element Id" : String_|
-|verticalAlignment  | Obviously, this will align the images vertically inside the frameScrub container. Align to the top, middle, or bottom. The default is top.  | _"top|middle|bottom": String_|
-|showTitles  | If you'd like to show titles of your images, you can do that. Just pass in the "ID" of the element you want to house the titles. Make sure your images have titles on them.  | _"Element Id": String_|
-|frameWidth  | If you want to specify a width for your images, pass in this option. If you don't, the images will stretch to fit the container. Either way, the height will be calculated to preserve the image's aspect ratio. Also, if you don't pass any width, the frameScrub is responsive to widths  | _"width": String_|
+|`defaultImage`  | Takes the 'id' attribute of an image. On page load and mouseOut, the defaultImage will be what is displayed inside the frameScrub.  | _"Element Id" : String_|
+|`verticalAlignment`  | Obviously, this will align the images vertically inside the frameScrub container. Align to the top, middle, or bottom. The default is top.  | _"top|middle|bottom": String_|
+|`showTitles`  | If you'd like to show titles of your images, you can do that. Just pass in the "ID" of the element you want to house the titles. Make sure your images have titles on them.  | _"Element Id": String_|
+|`frameWidth`  | If you want to specify a width for your images, pass in this option. If you don't, the images will stretch to fit the container. Either way, the height will be calculated to preserve the image's aspect ratio. Also, if you don't pass any width, the frameScrub is responsive to widths  | _"width": String_|
 
 ## What's Next
 I wanted to release this and see if it gains any traction. Here is what is on my docket for improvements...
+
 -_Mobile friendliness very soon_-
+
 I am anxious to hear if people use it and want to see it improved. Also I welcome any bug reports.
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) [2014] [Mike Cross]
+_Copyright (c) 2014 Mike Cross_
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
