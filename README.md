@@ -2,6 +2,8 @@
 
 _FrameScrub is a plugin that mimics the iPhoto album/event mouseover functionality for the web._
 
+_Homepage ~~http://www.mikcro.com/frameScrub~~_
+
 ## Project Setup
 
 _Setup is pretty easy..._ 
@@ -16,14 +18,23 @@ _Target an element like so..._
 ```
 $('#element').frameScrub({options});
 ```
+_The element should be set up something like this_
+```
+<div id="element" style="width:100%;height:200px;overflow:hidden;">
+  <img src="" id="1"/>
+  <img src="" id="1"/>  
+  <img src="" id="1"/>  
+  <img src="" id="1"/>    
+</div>
+```
 _Here are the options..._
 
 | Option  | What it do! | Possible Values          |
 |------------- | ------------- | -----------------|
 |`defaultImage`  | Takes the 'id' attribute of an image. On page load and mouseOut, the defaultImage will be what is displayed inside the frameScrub.  | _"Element Id" : String_|
-|`verticalAlignment`  | Obviously, this will align the images vertically inside the frameScrub container. Align to the top, middle, or bottom. The default is top.  | _"top|middle|bottom": String_|
+|`verticalAlignment`  | Obviously, this will align the images vertically inside the frameScrub container. Align to the top, middle, or bottom. The default is top.  | _"top": String_|
 |`showTitles`  | If you'd like to show titles of your images, you can do that. Just pass in the "ID" of the element you want to house the titles. Make sure your images have titles on them.  | _"Element Id": String_|
-|`frameWidth`  | If you want to specify a width for your images, pass in this option. If you don't, the images will stretch to fit the container. Either way, the height will be calculated to preserve the image's aspect ratio. Also, if you don't pass any width, the frameScrub is responsive to widths  | _"width": String_|
+|`frameWidth`  | If you want to specify a width for your images, pass in this option. If you don't, the images will stretch to fit the container. Either way, the height will be calculated to preserve the image's aspect ratio. Also, if you don't pass any width, the frameScrub is responsive to widths.  | _"width": String_|
 
 ## What's Next
 I wanted to release this and see if it gains any traction. Here is what is on my docket for improvements...

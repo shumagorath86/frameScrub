@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FrameScrub - A jQuery image scrubbing plugin</title>
+    <link rel='stylesheet' type="text/css" href="css/bootstrap.min.css" />
+    <link rel='stylesheet' type="text/css" href="css/bootstrap-theme.min.css" />
+    <link rel='stylesheet' type="text/css" href="css/main.css" />
+    <style type="text/css">
+      .lead{
+        margin:50px 0 50px 0;
+      }
+    </style>
+</head>
+
+<body>
+  <!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FrameScrub</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+          </div>
+        </div>
+      </div>-->
+      <div class="jumbotron" style="min-height:350px;">
+      <div class="container">
+        <div class="starter-template">
+          <h1>FrameScrub</h1>
+          <p class="lead" style="margin:0">FrameScrub is a plugin that mimics the iPhoto album/event mouseover functionality for the web.</p>
+          <br/>
+          <div class="btn-group">
+            <a href="https://github.com/shumagorath86/frameScrub" id="go" class="btn btn-default" target="_blank">FrameScrub on Github</a>
+          </div>
+        </div>
+      </div><!-- /.container -->
+      </div>
+      <div class="container">
+        <p class="lead">Here is a FrameScrub example (mouse over it!):</p>
+        <div id="fs1" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;">
+          <img src="images/fs1/img1.jpg" />
+          <img src="images/fs1/img2.jpg" />
+          <img src="images/fs1/img3.jpg" id="firstImage" />
+          <img src="images/fs1/img4.jpg" />
+          <img src="images/fs1/img5.jpg" />
+          <img src="images/fs1/img6.jpg" />
+          <img src="images/fs1/img7.jpg" />
+          <img src="images/fs1/img8.jpg" />
+        </div>
+        <p class="lead">...and the src is...</p>
+        <p>jQuery</p>
+        <pre>
+          <code>
+            $("#fs1").frameScrub({
+              defaultImage: 'firstImage',
+              verticalAlignment: 'middle',
+              showTitles: 'false',
+            });
+          </code>
+          </pre>
+          <p>HTML</p>
+          <pre>
+          <code>  
+            &lt;div id="fs1" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;"&gt;
+              &lt;img src="images/fs1/img1.jpg" /&gt;
+              &lt;img src="images/fs1/img2.jpg" /&gt;
+              &lt;img src="images/fs1/img3.jpg" id="firstImage" /&gt;
+              &lt;img src="images/fs1/img4.jpg" /&gt;
+              &lt;img src="images/fs1/img5.jpg" /&gt;
+              &lt;img src="images/fs1/img6.jpg" /&gt;
+              &lt;img src="images/fs1/img7.jpg" /&gt;
+              &lt;img src="images/fs1/img8.jpg" /&gt;
+            &lt;/div>
+          </code>
+        </pre>
+        <p class="lead">Pretty cool, eh? The frameScrub will take any size images and formats them to the size of the frameScrub container. After that, it looks at the size of the container element to decide how often the images should change when mousing over it. You can pass it a few options.</p>
+        <table class="table table-striped table-bordered table hover">
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>What it do</th>
+              <th>Possible Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>defaultImage</td>
+              <td>Takes the 'id' attribute of an image. On page load and mouseOut, the defaultImage will be what is displayed inside the frameScrub. </td>
+              <td>"element_ID" : string</td>
+            </tr>
+            <tr>
+              <td>verticalAlignment</td>
+              <td>Obviously, this will align the images vertically inside the frameScrub container. Align to the top, middle, or bottom. The default is top.</td>
+              <td>"top | middle | bottom" : string</td>
+            </tr>
+            <tr>
+              <td>showTitles</td>
+              <td>If you'd like to show titles of your images, you can do that. Just pass in the "ID" of the element you want to house the titles. Make sure your images have titles on them.</td>
+              <td>"element_ID" : string</td>
+            </tr>
+            <tr>
+              <td>frameWidth</td>
+              <td>If you want to specify a width for your images, pass in this option. If you don't, the images will stretch to fit the container. Either way, the height will be calculated to preserve the image's aspect ratio. Also, if you don't pass any width, the frameScrub is responsive to widths</td>
+              <td>width : int</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p class="lead">Another fun example. This time with some titles.</p>
+        
+        <div id="fs2" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;position:relative;">
+          <div id="fs2Titles" style="position:absolute;top:0;left:0;width:300px;height:50px;color:#FFF;z-index:1000;font-size:20px;padding:5px;"></div>
+          <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+          <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+          <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+          <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+          <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+          <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+          <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+        </div>
+        
+        <p class="lead">How about a gallery setting? Each one is triggered by it's class name, but make sure each element has a unique ID. You could get some unexpected results if you don't. It would be entertaining.</p>
+        
+        <div class="row">
+          <div class="col-xs-2">
+            <div id="fs3" class="fs" style="width:100%;height:100px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs1/img1.jpg" />
+              <img src="images/fs1/img2.jpg" />
+              <img src="images/fs1/img3.jpg" id="firstImage" />
+              <img src="images/fs1/img4.jpg" />
+              <img src="images/fs1/img5.jpg" />
+              <img src="images/fs1/img6.jpg" />
+              <img src="images/fs1/img7.jpg" />
+              <img src="images/fs1/img8.jpg" />
+            </div>
+            <p class="lead" style="margin:0;padding:0;">Gallery 1</p>
+          </div>
+          
+          <div class="col-xs-2">
+            <div id="fs4" class="fs" style="width:100%;height:100px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+               <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+               <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+               <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+               <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+               <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+               <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+            </div>
+            <p class="lead" style="margin:0;padding:0;">Gallery 2</p>
+          </div>
+          
+          <div class="col-xs-2">
+            <div id="fs5" class="fs" style="width:100%;height:100px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs1/img1.jpg" />
+              <img src="images/fs1/img2.jpg" />
+              <img src="images/fs1/img3.jpg" id="firstImage" />
+              <img src="images/fs1/img4.jpg" />
+              <img src="images/fs1/img5.jpg" />
+              <img src="images/fs1/img6.jpg" />
+              <img src="images/fs1/img7.jpg" />
+              <img src="images/fs1/img8.jpg" />
+            </div>
+            <p class="lead" style="margin:0;padding:0;">Gallery 3</p>
+          </div>
+          
+          <div class="col-xs-2">
+            <div id="fs6" class="fs" style="width:100%;height:100px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+               <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+               <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+               <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+               <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+               <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+               <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+            </div>
+            <p class="lead" style="margin:0;padding:0;">Gallery 4</p>
+          </div>
+          
+          <div class="col-xs-2">
+            <div id="fs7" class="fs" style="width:100%;height:100px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs1/img1.jpg" />
+              <img src="images/fs1/img2.jpg" />
+              <img src="images/fs1/img3.jpg" id="firstImage" />
+              <img src="images/fs1/img4.jpg" />
+              <img src="images/fs1/img5.jpg" />
+              <img src="images/fs1/img6.jpg" />
+              <img src="images/fs1/img7.jpg" />
+              <img src="images/fs1/img8.jpg" />
+            </div>
+            <p class="lead" style="margin:0;padding:0;">Gallery 5</p>
+          </div>
+          
+          <div class="col-xs-2">
+            <div id="fs8" class="fs" style="width:100%;height:100px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+               <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+               <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+               <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+               <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+               <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+               <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+            </div>
+            <p class="lead" style="margin:0;padding:0;">Gallery 6</p>
+          </div>
+        </div>
+        
+        <br/>
+        
+        <pre>
+          <code>
+            $(".fs").frameScrub({
+              defaultImage: 'firstImage',
+              verticalAlignment: 'top'
+            });
+          </code>
+        </pre>
+        
+        <!--<div class="row">
+          <div class="col-xs-6 col-md-4">
+            <div id="fs3" class="fs" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs1/img1.jpg" />
+              <img src="images/fs1/img2.jpg" />
+              <img src="images/fs1/img3.jpg" id="firstImage" />
+              <img src="images/fs1/img4.jpg" />
+              <img src="images/fs1/img5.jpg" />
+              <img src="images/fs1/img6.jpg" />
+              <img src="images/fs1/img7.jpg" />
+              <img src="images/fs1/img8.jpg" />
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-4">
+            <div id="fs4" class="fs" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+                <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+                <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+                <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+                <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+                <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+                <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-4">
+            <div id="fs5" class="fs" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;">
+              <img src="images/fs1/img1.jpg" />
+              <img src="images/fs1/img2.jpg" />
+              <img src="images/fs1/img3.jpg" id="firstImage" />
+              <img src="images/fs1/img4.jpg" />
+              <img src="images/fs1/img5.jpg" />
+              <img src="images/fs1/img6.jpg" />
+              <img src="images/fs1/img7.jpg" />
+              <img src="images/fs1/img8.jpg" />
+            </div>
+          </div>
+        </div>
+        
+        <br/>
+        
+        <div class="row">
+           <div class="col-xs-12 col-md-8">
+              <div id="fs6" class="fs" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;">
+                 <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+                  <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+                  <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+                  <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+                  <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+                  <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+                  <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+              </div>
+           </div>
+           <div class="col-xs-6 col-md-4">
+              <div id="fs7" class="fs" style="width:100%;height:300px;border:1px solid #666;overflow:hidden;">
+                 <img src="images/fs2/legolegolas1.jpg" title="legolegolas 1" id="firstImage" />
+                  <img src="images/fs2/legolegolas2.jpg" title="legolegolas 2" />
+                  <img src="images/fs2/legolegolas3.jpg" title="legolegolas 3" />
+                  <img src="images/fs2/legolegolas4.jpg" title="legolegolas 4" />
+                  <img src="images/fs2/legolegolas5.jpg" title="legolegolas 5" />
+                  <img src="images/fs2/legolegolas6.jpg" title="legolegolas 6" />
+                  <img src="images/fs2/legolegolas7.jpg" title="legolegolas 7" />
+              </div>
+           </div>
+        </div>-->
+        
+        <p class="lead">So...lots of options here. Let me know if you have any suggestions or find some bugs. Find me on my <a href="https://github.com/shumagorath86/frameScrub">github</a>.</p>
+        
+      </div>
+</body>
+  <script src="js/jquery.1.11.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/frameScrub.js"></script>
+  <script>
+    $("#fs1").frameScrub({
+      defaultImage: 'firstImage',
+      verticalAlignment: 'middle',
+      showTitles: 'false',
+    });
+    $("#fs2").frameScrub({
+      defaultImage: 'firstImage',
+      verticalAlignment: 'middle',
+      showTitles: 'fs2Titles',
+    });
+    $(".fs").frameScrub({
+      defaultImage: 'firstImage',
+      verticalAlignment: 'top'
+    });
+  </script>
+</html>
