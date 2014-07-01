@@ -2,7 +2,7 @@
 
 _FrameScrub is a plugin that mimics the iPhoto album/event mouseover functionality for the web._
 
-_Homepage ~~http://www.mikcro.com/frameScrub~~_
+_Homepage http://www.mikcro.com/frameScrub_
 
 ## Project Setup
 
