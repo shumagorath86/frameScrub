@@ -18,7 +18,7 @@ $('#element').frameScrub({options});
 ```
 _Here are the options..._
 | Option  | What it do! | Possible Values          |
-------------- | ------------- | -----------------|
+|------------- | ------------- | -----------------|
 |defaultImage  | Takes the 'id' attribute of an image. On page load and mouseOut, the defaultImage will be what is displayed inside the frameScrub.  | _"Element Id" : String_|
 |verticalAlignment  | Obviously, this will align the images vertically inside the frameScrub container. Align to the top, middle, or bottom. The default is top.  | _"top|middle|bottom": String_|
 |showTitles  | If you'd like to show titles of your images, you can do that. Just pass in the "ID" of the element you want to house the titles. Make sure your images have titles on them.  | _"Element Id": String_|
