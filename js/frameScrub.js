@@ -138,14 +138,11 @@
 					  after = num + 1;
 					  if(num < imgs.length){
 					  	$("#" + cont + " img:nth-of-type(" + after +")").hide();
-						console.log("hiding " + after);
 				  	  }
 					  if(before != 0){
 					  	$("#" + cont + " img:nth-of-type(" + before +")").hide();
-						console.log("hiding " + before);
 					  }
 					  $("#" + cont + " img:nth-of-type(" + num +")").show();
-						console.log("showing " + num)
 					  if(settings.showTitles){
 						$("#" + settings.showTitles).html($("#" + $(that).attr("id") + " img:nth-of-type(" + num +")").attr('title'));
 					  }
