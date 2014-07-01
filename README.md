@@ -17,6 +17,7 @@ _Target an element like so..._
 $('#element').frameScrub({options});
 ```
 _Here are the options..._
+
 | Option  | What it do! | Possible Values          |
 |------------- | ------------- | -----------------|
 |defaultImage  | Takes the 'id' attribute of an image. On page load and mouseOut, the defaultImage will be what is displayed inside the frameScrub.  | _"Element Id" : String_|
