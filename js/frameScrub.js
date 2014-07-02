@@ -45,19 +45,19 @@
 						newW = "100%";
 						newH = "auto";
 					}
-					$(this).css({"margin": "auto", "display":"block", "width": newW, "height": newH, "min-height": $(that).height(), "min-width": (pw * $(that).height())/ph});
+					$(this).css({"margin": "auto", "display":"inline-block", "width": newW, "height": newH, "min-height": $(that).height(), "min-width": (pw * $(that).height())/ph});
 				});
 			
 			}
 			
 			init();
 			
-			$(this).find("img").hide();
+			$(this).find("img").css("display","none");
 			
 			if(settings.defaultImage){
-				$(this).find("img#" + settings.defaultImage).show();
+				$(this).find("img#" + settings.defaultImage).css("display","inline-block");
 			}else{
-				$(this).find("img").first().show();
+				$(this).find("img").first().css("display","inline-block");
 			}
 			if(settings.showTitles){
 				$("#" + settings.showTitles).html(settings.defaultImage ? $(this).find("img#" + settings.defaultImage).attr('title') : $(this).find("img").first().attr('title'));
@@ -97,15 +97,11 @@
 				});
 			}
 			
-			//if ( $.isFunction( settings.complete ) ) {
-			   //settings.complete.call( this );
-			//}
-			
 			$(this).on("mouseenter", function(event){
 				  if(settings.defaultImage){
-					$(this).find("img#" + settings.defaultImage).hide();
+					$(this).find("img#" + settings.defaultImage).css("display","none");
 				  }else{
-					$(this).find("img").first().hide();
+					$(this).find("img").first().css("display","none");
 				  }
 				showMouseX(event,$(this).attr("id"));
 			});
@@ -115,11 +111,11 @@
 			});
 
 			  $(this).on("mouseleave", function(event){
-				$(this).find("img").hide();
+				$(this).find("img").css("display","none");
 				if(settings.defaultImage){
-					$(this).find("img#" + settings.defaultImage).show();
+					$(this).find("img#" + settings.defaultImage).css("display","inline-block");
 				}else{
-					$(this).find("img").first().show();
+					$(this).find("img").first().css("display","inline-block");
 				}
 				if(settings.showTitles){
 					$("#" + settings.showTitles).html(settings.defaultImage ? $(this).find("img#" + settings.defaultImage).attr('title') : $(this).find("img").first().attr('title'));
@@ -128,7 +124,7 @@
 
 			      function showMouseX(e,that){
 			        var offset = $("#" + that).offset();
-			        var imgNum = Math.floor((e.clientX - offset.left)/switcher);
+			        var imgNum = (e.clientX - offset.left) < w ? Math.floor((e.clientX - offset.left)/switcher) : imgs.length - 1;
 			        showImage(imgNum,that);
 			      }
 
@@ -137,12 +133,12 @@
 					  before = num - 1;
 					  after = num + 1;
 					  if(num < imgs.length){
-					  	$("#" + cont + " img:nth-of-type(" + after +")").hide();
+					  	$("#" + cont + " img:nth-of-type(" + after +")").css("display","none");
 				  	  }
 					  if(before != 0){
-					  	$("#" + cont + " img:nth-of-type(" + before +")").hide();
+					  	$("#" + cont + " img:nth-of-type(" + before +")").css("display","none");
 					  }
-					  $("#" + cont + " img:nth-of-type(" + num +")").show();
+					  $("#" + cont + " img:nth-of-type(" + num +")").css("display","inline-block");
 					  if(settings.showTitles){
 						$("#" + settings.showTitles).html($("#" + $(that).attr("id") + " img:nth-of-type(" + num +")").attr('title'));
 					  }
