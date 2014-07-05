@@ -55,9 +55,9 @@
 			$(this).find("img").css("display","none");
 			
 			if(settings.defaultImage){
-				$(this).find("img#" + settings.defaultImage).css("display","inline-block");
+				$(this).find("img#" + settings.defaultImage).css("display","block");
 			}else{
-				$(this).find("img").first().css("display","inline-block");
+				$(this).find("img").first().css("display","block");
 			}
 			if(settings.showTitles){
 				$("#" + settings.showTitles).html(settings.defaultImage ? $(this).find("img#" + settings.defaultImage).attr('title') : $(this).find("img").first().attr('title'));
@@ -113,9 +113,9 @@
 			  $(this).on("mouseleave", function(event){
 				$(this).find("img").css("display","none");
 				if(settings.defaultImage){
-					$(this).find("img#" + settings.defaultImage).css("display","inline-block");
+					$(this).find("img#" + settings.defaultImage).css("display","block");
 				}else{
-					$(this).find("img").first().css("display","inline-block");
+					$(this).find("img").first().css("display","block");
 				}
 				if(settings.showTitles){
 					$("#" + settings.showTitles).html(settings.defaultImage ? $(this).find("img#" + settings.defaultImage).attr('title') : $(this).find("img").first().attr('title'));
@@ -132,15 +132,15 @@
 				      num = num + 1;
 					  before = num - 1;
 					  after = num + 1;
+					  $("#" + cont + " img:nth-of-type(" + num +")").css("display","block");
+					  if(settings.showTitles){
+						$("#" + settings.showTitles).html($("#" + $(that).attr("id") + " img:nth-of-type(" + num +")").attr('title'));
+					  }
 					  if(num < imgs.length){
 					  	$("#" + cont + " img:nth-of-type(" + after +")").css("display","none");
 				  	  }
 					  if(before != 0){
 					  	$("#" + cont + " img:nth-of-type(" + before +")").css("display","none");
-					  }
-					  $("#" + cont + " img:nth-of-type(" + num +")").css("display","inline-block");
-					  if(settings.showTitles){
-						$("#" + settings.showTitles).html($("#" + $(that).attr("id") + " img:nth-of-type(" + num +")").attr('title'));
 					  }
 			      }
         });
